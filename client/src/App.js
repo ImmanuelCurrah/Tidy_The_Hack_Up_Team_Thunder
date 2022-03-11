@@ -6,7 +6,6 @@ import Signup from "./Screens/Signup";
 import Login from "./Screens/Login";
 function App() {
   return <div className="App">
-    <h1>Michael Abebe</h1>
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />

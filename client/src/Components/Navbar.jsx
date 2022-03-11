@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <div>
+    <div id='Nav'>
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/signup"}>Signup</NavLink>
       <NavLink to={"/login"}>Login</NavLink>

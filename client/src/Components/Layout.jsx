@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 
 export default function Layout(props) {
   return (
-    <div>
+    <div id='layout'>
       <Navbar></Navbar>
       {props.children}
     </div>
