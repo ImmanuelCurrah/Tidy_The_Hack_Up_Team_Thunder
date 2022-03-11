@@ -1,5 +1,6 @@
 class ParticipantsController < ApplicationController
   before_action :set_participant, only: %i[ show update destroy ]
+  before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /participants
   def index
@@ -18,7 +19,7 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(participant_params)
 
     if @participant.save
-      render json: @participant, status: :created, location: @participant
+      render json: @participant, status: :created
     else
       render json: @participant.errors, status: :unprocessable_entity
     end
