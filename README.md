@@ -12,7 +12,7 @@
 - donation section on each post
 - organizer section
 - clean up participant selection
-- calender
+- calenders
 
 # What it's going to be
 
