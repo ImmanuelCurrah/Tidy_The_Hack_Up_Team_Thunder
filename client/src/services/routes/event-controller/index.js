@@ -13,12 +13,9 @@ export const allEvents = async () => {
   }
 };
 
-export const createEvent = async (eventParams, uid) => {
+export const createEvent = async (eventParams) => {
   try {
-    const response = await api.post("/events", {
-      event: { eventParams },
-      id: { uid },
-    });
+    const response = await api.post("/events", { event: { eventParams } });
     return response.data;
   } catch (error) {
     errorHandler(
