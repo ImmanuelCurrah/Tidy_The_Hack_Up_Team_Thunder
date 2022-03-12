@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { allEvents } from "../services/routes/event-controller";
 import earth from "../assets/earth.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home(props) {
   const [featuredEvents, setFeaturedEvents] = useState([]);
@@ -14,19 +14,25 @@ export default function Home(props) {
       const events = await allEvents();
       setFeaturedEvents(events);
     };
-    if (!currentUser) {
-      navigate("/signup");
-    } else {
-      fetchFeaturedEvents();
-    }
+
+    fetchFeaturedEvents();
   }, []);
 
   return (
     <div>
-      {currentUser ? <div> {`Welcome back ${currentUser.name}`} </div> : null}
+      {currentUser ? (
+        <div> {`Welcome back ${currentUser.name}`} </div>
+      ) : (
+        <div>
+          <div>Welcome to Clean.ly</div>
+          <Link to="/">Sign Up Here</Link>
+          <br />
+          <Link to="/about">Read about us</Link>
+        </div>
+      )}
       <img src={earth} alt="a purple earth" />
       <h2>Featured Events!</h2>
-      {featuredEvents.map((event) => {
+      {featuredEvents.slice(0, 5).map((event) => {
         return (
           <div key={event.id}>
             <div>-------</div>
