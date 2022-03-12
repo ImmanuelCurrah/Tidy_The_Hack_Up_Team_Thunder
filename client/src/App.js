@@ -34,11 +34,27 @@ function App() {
     <div className="font-ubuntu">
       <Layout currentUser={currentUser}>
         <Routes>
+<<<<<<< HEAD
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup setCurrentUser={setCurrentUser} />} />
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
           <Route path="/Events/*" element={<Events currentUser={currentUser} />} />
           <Route path="/user-information" element={<Events currentUser={currentUser} />} />
+=======
+          <Route path="/" element={<Home currentUser={currentUser} />} />
+          <Route
+            path="/signup"
+            element={<Signup setCurrentUser={setCurrentUser} />}
+          />
+          <Route
+            path="/login"
+            element={<Login setCurrentUser={setCurrentUser} />}
+          />
+          <Route
+            path="/Events/*"
+            element={<Events currentUser={currentUser} />}
+          />
+>>>>>>> 698dde246a63704a119d8c95cb116798929fbd31
         </Routes>
       </Layout>
     </div>

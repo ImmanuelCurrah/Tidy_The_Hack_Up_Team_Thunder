@@ -2,6 +2,7 @@ import { api } from "../../api/api-config";
 import { errorHandler } from "../../error/errorHandler";
 
 export const loginUser = async (loginData) => {
+  console.log(loginData)
   try {
     const response = await api.post("auth/login", {
       authentication: loginData,
