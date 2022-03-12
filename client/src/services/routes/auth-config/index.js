@@ -14,3 +14,19 @@ export const loginUser = async (loginData) => {
     errorHandler(error, "Could not login user at this time, sorry");
   }
 };
+
+export const verifyUser = async () => {
+  try {
+    const token = localStorage.getItem("AuthToken");
+    if (token) {
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
+      const response = await api.get("auth/verify");
+      return response.data;
+    }
+  } catch (error) {
+    errorHandler(
+      error,
+      "Could not verify the current user trying to access the data, sorry"
+    );
+  }
+};
