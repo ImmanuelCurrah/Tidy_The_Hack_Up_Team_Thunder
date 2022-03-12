@@ -31,7 +31,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="font-ubuntu">
       <Layout currentUser={currentUser}>
         <Routes>
           <Route path="/" element={<Home />} />
