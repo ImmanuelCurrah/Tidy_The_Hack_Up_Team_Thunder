@@ -18,6 +18,10 @@ export default function Home(props) {
     fetchFeaturedEvents();
   }, []);
 
+  if (!featuredEvents) {
+    return "Loading...";
+  }
+
   return (
     <div>
       {currentUser ? (
