@@ -1,14 +1,12 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-
-import { verifyUser } from "./services/routes/auth-config";
-
-import Layout from "./Components/Layout/Layout";
-import Home from "./Screens/Home";
-import Signup from "./Screens/Signup";
-import Login from "./Screens/Login";
-
-import "./App.css";
+import "./App.css"
+import Layout from "./Components/Layout"
+import {Routes, Route, useNavigate} from "react-router-dom"
+import {useState, useEffect} from "react"
+import Home from "./Screens/Home"
+import Signup from "./Screens/Signup"
+import Login from "./Screens/Login"
+import {verifyUser} from "./services/routes/auth-config"
+import Events from "./Screens/Events/Events"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -39,6 +37,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
+          <Route path="/Events/*" element={<Events currentUser={ currentUser}/>}/>
         </Routes>
       </Layout>
     </div>
