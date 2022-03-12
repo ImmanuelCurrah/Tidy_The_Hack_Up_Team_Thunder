@@ -5,7 +5,6 @@ import EventAdd from "./AddEvent/EventAdd";
 import EventDetails from "./EventDetails/EventDetails";
 export default function Events(props) {
   const { currentUser } = props;
-  const [eventId, setEventId] = useState(0);
   const [events, setEvents] = useState(["clean sidewalk", "test"]);
   useEffect(() => {
     const getAll = async () => {
@@ -23,18 +22,20 @@ export default function Events(props) {
           path="/"
           element={
             <div>
-              Home
-              <br />
-              <NavLink to={`details/${eventId}`}>detail link</NavLink>
-              <NavLink to={"add"}>Add Event</NavLink>
+              {events && events.map((e, i) => {
+                return <div key={i}>
+                  <NavLink to={`details/${e.id}`}>{e.name}</NavLink>
+                </div>
+                })}
+                <NavLink to={"add"}>Add Event</NavLink>
             </div>
           }
         />
         <Route
-          path={`details/${eventId}`}
+          path={"details/:id"}
           element={
             <div>
-              <EventDetails eventId={eventId} events={events}></EventDetails>
+              <EventDetails events={events}></EventDetails>
             </div>
           }
         />
