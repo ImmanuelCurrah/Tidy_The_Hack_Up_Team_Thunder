@@ -37,10 +37,10 @@ export default function Home(props) {
           <div key={event.id}>
             <div>-------</div>
             <div>{event.name}</div>
-            <div>-------</div>
           </div>
         );
       })}
+      <div>-------</div>
     </div>
   );
 }
