@@ -1,5 +1,3 @@
 export default function LoginButton() {
-  return (
-    <button id='Login'>LoginButton</button>
-  )
+  return <button id="Login">LoginButton</button>;
 }
