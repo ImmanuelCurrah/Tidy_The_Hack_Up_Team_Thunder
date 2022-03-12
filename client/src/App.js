@@ -47,6 +47,10 @@ function App() {
             path="/Events/*"
             element={<Events currentUser={currentUser} />}
           />
+          <Route
+            path="/user-information"
+            element={<Events currentUser={currentUser} />}
+          />
         </Routes>
       </Layout>
     </div>
