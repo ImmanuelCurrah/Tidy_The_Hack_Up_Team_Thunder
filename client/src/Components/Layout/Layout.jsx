@@ -5,7 +5,9 @@ export default function Layout(props) {
   return (
     <div>
       <Navbar />
-      {props.children}
+      <div className='mb-36'>
+        {props.children}
+      </div>
       <Footer />
     </div>
   );
