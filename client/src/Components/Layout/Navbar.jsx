@@ -17,6 +17,7 @@ export default function Navbar() {
       <nav>
         {/* Buger menu will go here */}
         <NavLink to={"/"}>Home</NavLink>
+        <NavLink to={"/Events"}>Events</NavLink>
         <NavLink to={"/signup"}>Signup</NavLink>
         <NavLink to={"/login"}>Login</NavLink>
       </nav>
