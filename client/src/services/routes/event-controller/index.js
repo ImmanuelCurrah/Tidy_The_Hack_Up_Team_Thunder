@@ -1,5 +1,6 @@
 import { api } from "../../api/api-config";
 import { errorHandler } from "../../error/errorHandler";
+
 export const allEvents = async () => {
   try {
     const response = await api.get("/events");
@@ -9,9 +10,9 @@ export const allEvents = async () => {
   }
 };
 
-export const createEvent = async (eventParams,uid) => {
+export const createEvent = async (eventParams) => {
   try {
-    const response = await api.post("/events",{event:{eventParams},id:{uid}});
+    const response = await api.post("/events",{event:{eventParams}});
     return response.data;
   } catch (error) {
     errorHandler(error, "Could not return events at this time. Please try agian later.");
