@@ -5,6 +5,7 @@ import { registerUser } from "../../services/routes/user-config";
 export default function SignUpForm(props) {
   const [input, setInput] = useState({
     name: "",
+    img_url: "",
     email: "",
     password: "",
   });
@@ -49,6 +50,16 @@ export default function SignUpForm(props) {
           value={input.name}
           required
           autoFocus
+          onChange={changeHandler}
+        />
+        <br />
+        <label>Image Url</label>
+        <br />
+        <input
+          type="text"
+          id="img_url"
+          value={input.img_url}
+          required
           onChange={changeHandler}
         />
         <br />
