@@ -1,6 +1,8 @@
 import { NavLink, Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar(props) {
+  const { currentUser } = props?.props
+  console.log(currentUser);
   return (
     <header className="p-3 sticky top-0 z-50 flex items-center justify-center sm:justify-around bg-emerald-500 space-x-6">
       <Link to={"/"}>
