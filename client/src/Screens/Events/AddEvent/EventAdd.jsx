@@ -40,9 +40,9 @@ export default function EventAdd(props) {
           <br />
           <textarea type="string" id="description" value={event.description} onChange={handleChange} placeholder="Description" />
           <br />
-          <textarea type="string" id="equipment" value={event.equiptment} onChange={handleChange} placeholder="Equipment" />
+          <textarea type="string" id="equiptment" value={event.equiptment} onChange={handleChange} placeholder="Equipment" />
           <br />
-          <input type="integer" id="donations" value={event.donations} onChange={handleChange} placeholder="Donation" />
+          <input type="number" id="donations" value={event.donations} onChange={handleChange} placeholder="Donation" />
           <br />
           <textarea type="string" id="location" value={event.location} onChange={handleChange} placeholder="Location" />
           <br />
