@@ -6,6 +6,7 @@ import Home from "./Screens/Home"
 import Signup from "./Screens/Signup"
 import Login from "./Screens/Login"
 import {verifyUser} from "./services/routes/auth-config"
+import Events from "./Screens/Events/Events"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
+          <Route path="/Events/*" element={<Events currentUser={ currentUser}/>}/>
         </Routes>
       </Layout>
     </div>

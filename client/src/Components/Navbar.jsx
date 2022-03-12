@@ -6,6 +6,7 @@ export default function Navbar() {
     <div id='Nav'>
       <NavLink to={"/"}>Home</NavLink>
       <NavLink to={"/signup"}>Signup</NavLink>
+      <NavLink to={"/Events"}>Events</NavLink>
       <NavLink to={"/login"}>Login</NavLink>
     </div>
   )
