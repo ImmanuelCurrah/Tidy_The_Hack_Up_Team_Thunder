@@ -22,5 +22,6 @@
 
 ![](./readme_assets/erd.png)
 
-Immanuel is here you can delete this later.
-Nick is here you can delete this later.
+# Wireframes
+
+![](./readme_assets/wireframes.png)
