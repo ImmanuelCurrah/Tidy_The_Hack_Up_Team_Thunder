@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../services/routes/user-config";
 
 export default function SignUpForm(props) {
   const [input, setInput] = useState({
@@ -9,8 +11,8 @@ export default function SignUpForm(props) {
   const [confirmPassword, setConfirmPassword] = useState({
     confirmedPassword: "",
   });
-  const [toggleConfirm, setToggleConfirm] = useState(false);
   const { setCurrentUser } = props;
+  const navigate = useNavigate();
 
   const changeHandler = (e) => {
     const { id, value } = e.target;
@@ -25,12 +27,20 @@ export default function SignUpForm(props) {
     setConfirmPassword((prevPassword) => ({ ...prevPassword, [id]: value }));
   };
 
-  const onSubmit = (e) => {};
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const newUser = await registerUser(input);
+    console.log(newUser);
+    setCurrentUser(newUser);
+    navigate("/");
+  };
 
   return (
     <div>
-      {toggleConfirm && <div>here</div>}
-      <form>
+      {confirmPassword.confirmedPassword !== input.password && (
+        <div>Passwords must match!</div>
+      )}
+      <form onSubmit={onSubmit}>
         <label>Name</label>
         <br />
         <input

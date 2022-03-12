@@ -1,5 +1,5 @@
 import "./App.css";
-import Layout from "./Components/Layout";
+import Layout from "./Components/Layout/Layout";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./Screens/Home";
