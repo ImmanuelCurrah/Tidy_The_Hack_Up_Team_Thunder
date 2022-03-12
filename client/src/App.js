@@ -35,6 +35,12 @@ function App() {
       <Layout currentUser={currentUser} logout={logout}>
         <Routes>
           <Route path="/" element={<Home currentUser={currentUser} />} />
+<<<<<<< HEAD
+          <Route path="/signup" element={<Signup setCurrentUser={setCurrentUser} />} />
+          <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
+          <Route path="/Events/*" element={<Events currentUser={currentUser} />} />
+          <Route path="/user-information" element={<UserInfo currentUser={currentUser} />} />
+=======
           <Route
             path="/signup"
             element={<Signup setCurrentUser={setCurrentUser} />}
@@ -51,6 +57,7 @@ function App() {
             path="/user-information"
             element={<Events currentUser={currentUser} />}
           />
+>>>>>>> 4087254548f7ea192a925961586878ce0283e61a
         </Routes>
       </Layout>
     </div>

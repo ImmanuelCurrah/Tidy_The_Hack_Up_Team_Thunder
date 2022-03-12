@@ -1,7 +1,9 @@
-import React from 'react'
+import ShowUserEvents from "../../Components/ShowUserEvents/ShowUserEvents"
 
 export default function UserInfo() {
   return (
-    <div>UserInfo</div>
+    <div>
+      <ShowUserEvents />
+    </div>
   )
 }
