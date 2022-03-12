@@ -14,7 +14,11 @@ export default function Home(props) {
       const events = await allEvents();
       setFeaturedEvents(events);
     };
-    fetchFeaturedEvents();
+    if (!currentUser) {
+      navigate("/signup");
+    } else {
+      fetchFeaturedEvents();
+    }
   }, []);
 
   return (
