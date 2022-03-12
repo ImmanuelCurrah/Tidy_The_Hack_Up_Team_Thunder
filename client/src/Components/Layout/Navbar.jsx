@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import {NavLink, Link} from "react-router-dom"
 
 export default function Navbar(props) {
   const { currentUser } = props
@@ -16,7 +16,8 @@ export default function Navbar(props) {
         <NavLink to={"/Events"}>Events</NavLink>
         <NavLink to={"/signup"}>Signup</NavLink>
         <NavLink to={"/login"}>Login</NavLink>
+        <NavLink to={"/user-information"}>User Information</NavLink>
       </nav>
     </header>
-  );
+  )
 }
