@@ -25,3 +25,7 @@
 # Wireframes
 
 ![](./readme_assets/wireframes.png)
+
+# Component Hierarchy
+
+![](./readme_assets/components.png)
