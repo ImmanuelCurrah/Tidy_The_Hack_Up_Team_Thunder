@@ -28,7 +28,7 @@ export default function EventAdd(props) {
     const handleEvent = async (e) => {
       e.preventDefault()
       console.log(event);
-      const resp = await createEvent(event,props.currentUser.id)
+      const resp = await createEvent(event)
       // props.setCurrentUser(resp)
       navigate("/Events")
     }
