@@ -4,8 +4,12 @@ import Navbar from "./Navbar";
 export default function Layout(props) {
   return (
     <div>
-      <Navbar props={props} />
-      {props.children}
+      <Navbar
+        currentUser = {props.currentUser}
+      />
+      <div className='mb-36'>
+        {props.children}
+      </div>
       <Footer />
     </div>
   );
