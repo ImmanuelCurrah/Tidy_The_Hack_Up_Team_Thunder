@@ -1,7 +1,12 @@
-import React from 'react'
+import SignUpForm from "../Components/SignUpForm/SignUpForm";
 
-export default function Signup() {
+export default function Signup(props) {
+  const { setCurrentUser } = props;
+
   return (
-    <div>Signup</div>
-  )
+    <div>
+      <h1>Sign up!</h1>
+      <SignUpForm setCurrentUser={setCurrentUser} />
+    </div>
+  );
 }
