@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { createEvent } from "../../../services/routes/event-controller";
 
 export default function EventAdd(props) {
     const [event, setEvent] = useState({
@@ -27,7 +28,7 @@ export default function EventAdd(props) {
     const handleEvent = async (e) => {
       e.preventDefault()
       console.log(event);
-      // const resp = await loginUser(user)
+      const resp = await createEvent(event,props.currentUser.id)
       // props.setCurrentUser(resp)
       navigate("/Events")
     }
