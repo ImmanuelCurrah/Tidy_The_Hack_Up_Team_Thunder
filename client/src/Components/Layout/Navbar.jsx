@@ -6,7 +6,9 @@ export default function Navbar() {
       <Link to={"/"}>
         <h1 className="text-5xl sm:text-6xl text-emerald-100">Clean.ly</h1>
       </Link>
-      <nav>
+      <nav
+        className="space-x-3"
+      >
         {/* Buger menu will go here */}
         <NavLink to={"/"}>Home</NavLink>
         <NavLink to={"/Events"}>Events</NavLink>
