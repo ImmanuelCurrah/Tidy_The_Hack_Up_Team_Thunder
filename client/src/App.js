@@ -11,26 +11,26 @@ import Login from "./Screens/Login";
 import "./App.css";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getUser = async () => {
-      const user = await verifyUser();
+      const user = await verifyUser()
       if (user) {
-        setCurrentUser(user);
+        setCurrentUser(user)
       } else {
-        setCurrentUser(null);
+        setCurrentUser(null)
       }
-    };
-    getUser();
-  }, []);
+    }
+    getUser()
+  }, [])
 
   const logout = () => {
-    localStorage.removeItem("AuthToken");
-    setCurrentUser(null);
-    navigate("/");
-  };
+    localStorage.removeItem("AuthToken")
+    setCurrentUser(null)
+    navigate("/")
+  }
 
   return (
     <div className="font-ubuntu">
@@ -38,11 +38,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
         </Routes>
       </Layout>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
