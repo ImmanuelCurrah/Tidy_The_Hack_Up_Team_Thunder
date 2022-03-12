@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   post '/auth/login', to: 'authentications#login'
   get '/auth/verify', to: 'authentications#verify'
+  get '/users/:id/events', to: 'users#user_events'
 end
