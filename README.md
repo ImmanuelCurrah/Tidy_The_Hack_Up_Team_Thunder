@@ -29,3 +29,14 @@
 # Component Hierarchy
 
 ![](./readme_assets/components.png)
+
+# Todos
+
+1. homepage
+   {2. Event page
+2. Event create form
+3. event details page/with signup button
+4. Event config file for above pages} - michael
+   {6. Account details page} - Trung
+   {7. logged in or not logic for homepage redirection
+5. Guest account login functionality } - Immanuel
