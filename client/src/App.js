@@ -1,34 +1,34 @@
-import "./App.css"
-import Layout from "./Components/Layout/Layout"
-import {Routes, Route, useNavigate} from "react-router-dom"
-import {useState, useEffect} from "react"
-import Home from "./Screens/Home"
-import Signup from "./Screens/Signup"
-import Login from "./Screens/Login"
-import {verifyUser} from "./services/routes/auth-config"
-import Events from "./Screens/Events/Events"
+import "./App.css";
+import Layout from "./Components/Layout/Layout";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Home from "./Screens/Home";
+import Signup from "./Screens/Signup";
+import Login from "./Screens/Login";
+import { verifyUser } from "./services/routes/auth-config";
+import Events from "./Screens/Events/Events";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
-  const navigate = useNavigate()
+  const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getUser = async () => {
-      const user = await verifyUser()
+      const user = await verifyUser();
       if (user) {
-        setCurrentUser(user)
+        setCurrentUser(user);
       } else {
-        setCurrentUser(null)
+        setCurrentUser(null);
       }
-    }
-    getUser()
-  }, [])
+    };
+    getUser();
+  }, []);
 
   const logout = () => {
-    localStorage.removeItem("AuthToken")
-    setCurrentUser(null)
-    navigate("/")
-  }
+    localStorage.removeItem("AuthToken");
+    setCurrentUser(null);
+    navigate("/");
+  };
 
   return (
     <div className="font-ubuntu">
@@ -47,11 +47,14 @@ function App() {
             path="/Events/*"
             element={<Events currentUser={currentUser} />}
           />
-          <Route path="/user-information" element={<Events currentUser={currentUser} />} />
+          <Route
+            path="/user-information"
+            element={<Events currentUser={currentUser} />}
+          />
         </Routes>
       </Layout>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
