@@ -34,7 +34,7 @@ function App() {
     <div className="font-ubuntu">
       <Layout currentUser={currentUser}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home currentUser={currentUser} />} />
           <Route
             path="/signup"
             element={<Signup setCurrentUser={setCurrentUser} />}
