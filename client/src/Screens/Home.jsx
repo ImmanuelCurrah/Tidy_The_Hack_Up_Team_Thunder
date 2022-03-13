@@ -31,29 +31,51 @@ export default function Home(props) {
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center ">
       {currentUser ? (
-        <div> {`Welcome back ${currentUser.name}`} </div>
+        <div className="mb-2 text-3xl">
+          {`Welcome back ${currentUser.name}`}{" "}
+        </div>
       ) : (
-        <div>
-          <div>Welcome to Clean.ly</div>
-          <Link to="/">Sign Up Here</Link>
-          <div onClick={guestLogin}>Log in as a Guest</div>
+        <div className="flex flex-col items-center">
+          <div className="mb-2 text-3xl">Welcome to Clean.ly</div>
+          <div>
+            <Link className="bg-emerald-500 p-2 rounded-full" to="/">
+              Sign Up
+            </Link>
+            <Link className="bg-emerald-500 p-2 rounded-full" to="/login">
+              Login
+            </Link>
+          </div>
+
+          <div
+            className="bg-emerald-500 flex flex-col p-2 m-2 rounded-full"
+            onClick={guestLogin}
+          >
+            Log in as a Guest
+          </div>
           <br />
-          <Link to="/about">Read about us</Link>
         </div>
       )}
-      <img src={earth} alt="a purple earth" />
+      <div className="h-32 bg-emerald-500 rounded-2xl flex flex-row items-center mx-4 px-4">
+        Clean.ly is a place for people to come together and protect places that
+        matter.
+      </div>
+      <img className="w-60 p-8" src={earth} alt="a purple earth" />
+      <div className="h-32 bg-emerald-500 rounded-2xl flex flex-row items-center mx-4 px-4">
+        Make an event, invite your friends and do something good for your
+        favorite park or stream!
+      </div>
       <h2>Featured Events!</h2>
-      {featuredEvents.slice(0, 5).map((event) => {
-        return (
-          <div key={event.id}>
-            <div>-------</div>
-            <div>{event.name}</div>
-          </div>
-        );
-      })}
-      <div>-------</div>
+      <div className="w-52 bg-emerald-500 p-8 rounded-2xl flex flex-row overflow-y-auto">
+        {featuredEvents.slice(0, 5).map((event) => {
+          return (
+            <div className="p-8 bg-emerald-100 m-2 rounded-2xl" key={event.id}>
+              <Link to={`/Events/details/${event.id}`}>{event.name}</Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
