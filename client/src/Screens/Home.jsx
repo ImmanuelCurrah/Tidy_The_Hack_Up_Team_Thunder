@@ -40,7 +40,7 @@ export default function Home(props) {
         <div className="flex flex-col items-center">
           <div className="mb-2 text-3xl">Welcome to Clean.ly</div>
           <div>
-            <Link className="bg-emerald-500 p-2 rounded-full" to="/">
+            <Link className="bg-emerald-500 p-2 rounded-full" to="/signup">
               Sign Up
             </Link>
             <Link className="bg-emerald-500 p-2 rounded-full" to="/login">
