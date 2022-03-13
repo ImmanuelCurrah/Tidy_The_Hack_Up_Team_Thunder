@@ -25,7 +25,7 @@ export default function Events(props) {
                 events.map((e, i) => {
                   return (
                     <div
-                      className="w-52 h-32 bg-emerald-700 p-8 mb-0.5 rounded-2xl"
+                      className="w-52 h-32 bg-emerald-700 p-8 mb-0.5 rounded-2xl text-emerald-100"
                       key={i}
                     >
                       <NavLink to={`details/${e.id}`}>{e.name}</NavLink>
