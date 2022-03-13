@@ -1,12 +1,12 @@
 /* Ubuntu Regular Font */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-    body {
-        @apply bg-emerald-100;
-    }
+  body {
+    @apply bg-emerald-50;
+  }
 }
