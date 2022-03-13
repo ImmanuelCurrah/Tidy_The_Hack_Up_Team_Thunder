@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { allEvents } from "../services/routes/event-controller";
+import { loginUser } from "../services/routes/auth-config";
 import earth from "../assets/earth.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home(props) {
   const [featuredEvents, setFeaturedEvents] = useState([]);
+  const [guest, setGuest] = useState({
+    email: "guest@guest.com",
+    password: "test",
+  });
   const { currentUser } = props;
-  const navigate = useNavigate();
-  console.log(featuredEvents);
 
   useEffect(() => {
     const fetchFeaturedEvents = async () => {
@@ -17,6 +20,11 @@ export default function Home(props) {
 
     fetchFeaturedEvents();
   }, []);
+
+  const guestLogin = async () => {
+    await loginUser(guest);
+    window.location.reload(false);
+  };
 
   if (!featuredEvents) {
     return "Loading...";
@@ -30,6 +38,7 @@ export default function Home(props) {
         <div>
           <div>Welcome to Clean.ly</div>
           <Link to="/">Sign Up Here</Link>
+          <div onClick={guestLogin}>Log in as a Guest</div>
           <br />
           <Link to="/about">Read about us</Link>
         </div>

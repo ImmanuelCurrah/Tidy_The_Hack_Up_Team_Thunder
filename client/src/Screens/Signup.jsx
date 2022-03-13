@@ -5,7 +5,6 @@ export default function Signup(props) {
 
   return (
     <div>
-      <h1>Sign up!</h1>
       <SignUpForm setCurrentUser={setCurrentUser} />
     </div>
   );

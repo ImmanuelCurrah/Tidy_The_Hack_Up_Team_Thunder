@@ -2,7 +2,6 @@ import { NavLink, Link } from "react-router-dom";
 
 export default function Navbar(props) {
   const { currentUser } = props;
-  console.log(currentUser);
   return (
     <header className="p-3 sticky top-0 z-50 flex items-center justify-center sm:justify-around bg-emerald-500 space-x-6">
       <Link to={"/"}>
@@ -12,7 +11,7 @@ export default function Navbar(props) {
         {/* Buger menu will go here */}
         <NavLink to={"/"}>Home</NavLink>
         <NavLink to={"/Events"}>Events</NavLink>
-        <NavLink to={"/signup"}>Signup</NavLink>
+        <NavLink to={"/signup"}>Sign Up</NavLink>
         <NavLink to={"/login"}>Login</NavLink>
         <NavLink to={"/user-information"}>User Information</NavLink>
         {currentUser && (
