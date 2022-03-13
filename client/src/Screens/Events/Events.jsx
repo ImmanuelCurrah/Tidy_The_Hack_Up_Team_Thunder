@@ -15,7 +15,7 @@ export default function Events(props) {
     getAll();
   },[])
   return (
-    <div >
+    <div className="text-xl row text-center text-emerald-500 bg-emerald-100">
       Events
       <Routes>
         <Route
