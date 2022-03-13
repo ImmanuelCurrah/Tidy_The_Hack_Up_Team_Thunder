@@ -32,7 +32,9 @@ export default function Events(props) {
                     </div>
                   );
                 })}
-              <NavLink to={"add"}>Add Event</NavLink>
+              <div className="bg-emerald-700 p-2 rounded-full text-emerald-100">
+                <NavLink to={"add"}>Add Event</NavLink>
+              </div>
             </div>
           }
         />
