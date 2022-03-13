@@ -40,16 +40,22 @@ export default function Home(props) {
         <div className="flex flex-col items-center">
           <div className="mb-2 text-3xl">Welcome to Clean.ly</div>
           <div>
-            <Link className="bg-emerald-500 p-2 rounded-full" to="/signup">
+            <Link
+              className="bg-emerald-700 p-2 rounded-full text-emerald-100"
+              to="/signup"
+            >
               Sign Up
             </Link>
-            <Link className="bg-emerald-500 p-2 rounded-full" to="/login">
+            <Link
+              className="bg-emerald-700 p-2 rounded-full text-emerald-100"
+              to="/login"
+            >
               Login
             </Link>
           </div>
 
           <div
-            className="bg-emerald-500 flex flex-col p-2 m-2 rounded-full"
+            className="bg-emerald-700 flex flex-col p-2 m-2 rounded-full text-emerald-100"
             onClick={guestLogin}
           >
             Log in as a Guest

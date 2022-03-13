@@ -9,25 +9,27 @@ export default function Events(props) {
   useEffect(() => {
     const getAll = async () => {
       const res = await allEvents();
-      console.log(res);
       setEvents(res);
-    }
+    };
     getAll();
-  },[])
+  }, []);
   return (
-    <div >
+    <div>
       Events
       <Routes>
         <Route
           path="/"
           element={
             <div>
-              {events && events.map((e, i) => {
-                return <div key={i}>
-                  <NavLink  to={`details/${e.id}`} >{e.name}</NavLink>
-                </div>
+              {events &&
+                events.map((e, i) => {
+                  return (
+                    <div key={i}>
+                      <NavLink to={`details/${e.id}`}>{e.name}</NavLink>
+                    </div>
+                  );
                 })}
-                <NavLink to={"add"}>Add Event</NavLink>
+              <NavLink to={"add"}>Add Event</NavLink>
             </div>
           }
         />
