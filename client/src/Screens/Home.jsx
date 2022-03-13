@@ -72,7 +72,7 @@ export default function Home(props) {
         Make an event, invite your friends and do something good for your
         favorite park or stream!
       </div>
-      <h2>Top 10 Featured Events!</h2>
+      <h2 className="mb-2 text-3xl m-4">Top 10 Featured Events!</h2>
       <div className="w-80 bg-emerald-500 p-8 rounded-2xl flex flex-row overflow-y-auto">
         {featuredEvents.slice(0, 10).map((event) => {
           return (

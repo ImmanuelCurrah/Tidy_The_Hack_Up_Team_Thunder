@@ -6,7 +6,7 @@ export default function EventAdd(props) {
   const [event, setEvent] = useState({
     name: "",
     description: "",
-    equiptment: "",
+    equipment: "",
     start_date: "",
     end_date: "",
     donations: 0,
@@ -64,8 +64,8 @@ export default function EventAdd(props) {
               <label className="block">Equipment Needed</label>
               <textarea
                 type="string"
-                id="equiptment"
-                value={event.equiptment}
+                id="equipment"
+                value={event.equipment}
                 onChange={handleChange}
                 required
                 className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
