@@ -28,7 +28,7 @@ export default function EventAdd(props) {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const resp = await createEvent(event);
+    await createEvent(event);
     navigate("/Events");
   };
 
