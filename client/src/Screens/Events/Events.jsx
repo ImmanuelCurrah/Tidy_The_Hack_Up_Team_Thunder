@@ -14,17 +14,20 @@ export default function Events(props) {
     getAll();
   }, []);
   return (
-    <div>
-      Events
+    <div className="text-xl row text-center">
+      <h2 className="text-3xl">Events</h2>
       <Routes>
         <Route
           path="/"
           element={
-            <div>
+            <div className="flex flex-col items-center">
               {events &&
                 events.map((e, i) => {
                   return (
-                    <div key={i}>
+                    <div
+                      className="w-52 h-32 bg-emerald-700 p-8 mb-0.5 rounded-2xl"
+                      key={i}
+                    >
                       <NavLink to={`details/${e.id}`}>{e.name}</NavLink>
                     </div>
                   );
