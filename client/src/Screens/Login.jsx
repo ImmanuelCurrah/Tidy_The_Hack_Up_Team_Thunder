@@ -1,7 +1,11 @@
-import React from 'react'
+import LoginForm from "../Components/LoginForm/LoginForm";
 
-export default function Login() {
+export default function Login(props) {
+  const { setCurrentUser } = props;
+
   return (
-    <div>Login</div>
-  )
+    <div>
+      <LoginForm setCurrentUser={setCurrentUser} />
+    </div>
+  );
 }
