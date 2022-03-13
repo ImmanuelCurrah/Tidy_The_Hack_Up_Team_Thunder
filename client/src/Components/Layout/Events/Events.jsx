@@ -15,6 +15,7 @@ export default function Events(props) {
     }
     getAll()
   }, [])
+
   return (
     <div id="Events">
       Events

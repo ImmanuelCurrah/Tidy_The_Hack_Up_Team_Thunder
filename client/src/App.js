@@ -5,6 +5,7 @@ import {useState, useEffect} from "react"
 import Home from "./Screens/Home"
 import Signup from "./Screens/Signup"
 import Login from "./Screens/Login"
+import UserInfo from "./Screens/User/UserInfo"
 import {verifyUser} from "./services/routes/auth-config"
 import Events from "./Components/Layout/Events/Events"
 
@@ -38,7 +39,7 @@ function App() {
           <Route path="/signup" element={<Signup setCurrentUser={setCurrentUser} />} />
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
           <Route path="/Events/*" element={<Events currentUser={currentUser} />} />
-          <Route path="/user-information" element={<Events currentUser={currentUser} />} />
+          <Route path="/user-information" element={<UserInfo currentUser={currentUser} />} />
         </Routes>
       </Layout>
     </div>
