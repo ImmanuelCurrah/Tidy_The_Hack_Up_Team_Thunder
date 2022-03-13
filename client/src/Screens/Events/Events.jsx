@@ -15,7 +15,7 @@ export default function Events(props) {
     getAll();
   },[])
   return (
-    <div id="Events">
+    <div >
       Events
       <Routes>
         <Route
@@ -24,7 +24,7 @@ export default function Events(props) {
             <div>
               {events && events.map((e, i) => {
                 return <div key={i}>
-                  <NavLink to={`details/${e.id}`}>{e.name}</NavLink>
+                  <NavLink  to={`details/${e.id}`} >{e.name}</NavLink>
                 </div>
                 })}
                 <NavLink to={"add"}>Add Event</NavLink>
