@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import {useState} from "react"
+import {NavLink, Link} from "react-router-dom"
 
 export default function Navbar(props) {
-  const [toggleBurger, setToggleBurger] = useState(false);
-  const { currentUser } = props;
+  const [toggleBurger, setToggleBurger] = useState(false)
+  const {currentUser} = props
 
   const toggleMenu = () => {
-    setToggleBurger((prevToggle) => !prevToggle);
-  };
+    setToggleBurger((prevToggle) => !prevToggle)
+  }
 
   return (
     <header className="p-3 sticky top-0 z-50 flex items-center justify-center sm:justify-around bg-emerald-500 space-x-32 static">
@@ -46,7 +46,7 @@ export default function Navbar(props) {
         {currentUser && (
           <div
             onClick={() => {
-              props.logout();
+              props.logout()
             }}
           >
             Logout
@@ -54,5 +54,5 @@ export default function Navbar(props) {
         )}
       </nav>
     </header>
-  );
+  )
 }

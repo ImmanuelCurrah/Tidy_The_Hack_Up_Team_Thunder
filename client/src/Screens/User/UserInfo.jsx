@@ -1,9 +1,9 @@
-import ShowUserEvents from "../../Components/ShowUserEvents/ShowUserEvents"
+import UserEvents from "../../Components/Layout/Events/UserEvents/UserEvents"
 
-export default function UserInfo() {
+export default function UserInfo(props) {
   return (
     <div>
-      <ShowUserEvents />
+      <UserEvents currentUser={props.currentUser} />
     </div>
   )
 }
