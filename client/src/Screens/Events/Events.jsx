@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
-import { allEvents } from "../../services/routes/event-controller";
-import EventAdd from "./AddEvent/EventAdd";
-import EventDetails from "./EventDetails/EventDetails";
+import {useEffect, useState} from "react"
+import {Routes, Route, NavLink} from "react-router-dom"
+import {allEvents} from "../../services/routes/event-controller"
+import EventAdd from "./AddEvent/EventAdd"
+import EventDetails from "./EventDetails/EventDetails"
+
 export default function Events(props) {
-  const { currentUser } = props;
-  const [events, setEvents] = useState(["clean sidewalk", "test"]);
+  const {currentUser} = props
+  const [events, setEvents] = useState(["clean sidewalk", "test"])
   useEffect(() => {
     const getAll = async () => {
-      const res = await allEvents();
-      setEvents(res);
-    };
-    getAll();
-  }, []);
+      const res = await allEvents()
+      setEvents(res)
+    }
+    getAll()
+  }, [])
   return (
     <div className="text-xl row text-center">
       <h2 className="text-3xl">Events</h2>
@@ -24,13 +25,10 @@ export default function Events(props) {
               {events &&
                 events.map((e, i) => {
                   return (
-                    <div
-                      className="w-52 h-32 bg-emerald-700 p-8 mb-0.5 rounded-2xl text-emerald-100"
-                      key={i}
-                    >
+                    <div className="w-52 h-32 bg-emerald-700 p-8 mb-0.5 rounded-2xl text-emerald-100" key={i}>
                       <NavLink to={`details/${e.id}`}>{e.name}</NavLink>
                     </div>
-                  );
+                  )
                 })}
               <div className="bg-emerald-700 p-2 rounded-full text-emerald-100">
                 <NavLink to={"add"}>Add Event</NavLink>
@@ -42,7 +40,7 @@ export default function Events(props) {
           path={"details/:id"}
           element={
             <div>
-              <EventDetails events={events}></EventDetails>
+              <EventDetails currentUser={props.currentUser} events={events}></EventDetails>
             </div>
           }
         />
@@ -56,5 +54,5 @@ export default function Events(props) {
         />
       </Routes>
     </div>
-  );
+  )
 }
