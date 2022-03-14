@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-  before_action :set_participant, only: %i[ show update destroy ]
+  before_action :set_participant, only: %i[ show update destroy]
   before_action :authorize_request, only: [:create, :update, :destroy]
 
   # GET /participants
@@ -15,8 +15,10 @@ class ParticipantsController < ApplicationController
   end
 
   # POST /participants
-  def create
-    @participant = Participant.new(participant_params)
+  def create_participant
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @participant = Participant.new({:event_id => @event.id, :user_id => @user.id})
 
     if @participant.save
       render json: @participant, status: :created

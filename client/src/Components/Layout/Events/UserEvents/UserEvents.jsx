@@ -4,10 +4,11 @@ import {fetchUserEvents} from "../../../../services/routes/user-config"
 export default function UserEvents(props) {
   const [userEvents, setUserEvents] = useState([])
   console.log(props.currentUser)
+
   useEffect(() => {
     const getEvents = async () => {
-      const resp = setUserEvents(props.currentUser.id)
-      fetchUserEvents(resp)
+      const resp = await fetchUserEvents(props.currentUser.id)
+      setUserEvents(resp)
     }
     getEvents()
   }, [])

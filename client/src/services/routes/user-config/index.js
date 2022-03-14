@@ -26,9 +26,18 @@ export const registerUser = async (registerData) => {
 
 export const fetchUserEvents = async (user_id) => {
   try {
-    const response = await api.get(`user/${user_id}/events`)
+    const response = await api.get(`users/${user_id}/events`)
     return response.data
   } catch (error) {
     errorHandler(error, "Could not get users events")
+  }
+}
+
+export const signupForEvent = async (user_id, event_id) => {
+  try {
+    const response = await api.post(`users/${user_id}/events/${event_id}`)
+    return response.data
+  } catch (error) {
+    errorHandler(error, "Could not sign up for this event")
   }
 }
