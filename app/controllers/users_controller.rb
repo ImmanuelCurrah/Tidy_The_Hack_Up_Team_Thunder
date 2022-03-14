@@ -45,15 +45,14 @@ class UsersController < ApplicationController
 
   # Get user events /users/:id/events
   def show_user_events
-    @user.events
     render json: @user.events
   end
 
-  def add_user_event
-    @event = Event.find(params[:event_id])
-    @user.events << @event
-    render json: @user.events
-  end
+  # def add_user_event
+  #   @event = Event.find(params[:event_id])
+  #   @user.events << @event
+  #   render json: @user.events
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

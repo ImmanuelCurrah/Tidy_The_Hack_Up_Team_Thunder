@@ -21,7 +21,7 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new({:event_id => @event.id, :user_id => @user.id})
 
     if @participant.save
-      render json: @participant, status: :created
+      render json: @participant
     else
       render json: @participant.errors, status: :unprocessable_entity
     end

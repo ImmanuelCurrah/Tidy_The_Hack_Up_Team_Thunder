@@ -18,13 +18,8 @@ export default function EventDetails(props) {
   }
 
   const handleParticipate = async () => {
-    // const participant = await addParticipant(currentUser.id, id)
-    // const userEvent = await signupForEvent(currentUser.id, id)
-    // console.log(participant)
-    // console.log(userEvent)
-    const response = await Promise.all([addParticipant(currentUser.id, id), signupForEvent(currentUser.id, id)])
-    const data = response.map((res) => res)
-    console.log(data)
+    const participant = await addParticipant(currentUser.id, id)
+    console.log(participant)
   }
   return (
     <div>
