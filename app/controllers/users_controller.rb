@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy ]
+  before_action :set_user, only: %i[ show update destroy show_user_events add_user_event]
   before_action :authorize_request, only: [:update, :destroy]
 
   # GET /users
@@ -44,9 +44,15 @@ class UsersController < ApplicationController
   end
 
   # Get user events /users/:id/events
-  def user_events
-    @user.events
+  def show_user_events
+    render json: @user.events
   end
+
+  # def add_user_event
+  #   @event = Event.find(params[:event_id])
+  #   @user.events << @event
+  #   render json: @user.events
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

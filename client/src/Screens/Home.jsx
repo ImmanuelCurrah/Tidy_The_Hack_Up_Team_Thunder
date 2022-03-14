@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { allEvents } from "../services/routes/event-controller";
 import { loginUser } from "../services/routes/auth-config";
-import earth from "../assets/earth.png";
+import earth from "../../src/assets/earth.png";
 import { Link } from "react-router-dom";
 
 export default function Home(props) {
   const [featuredEvents, setFeaturedEvents] = useState([]);
-  //eslint-disable-next-line
   const [guest, setGuest] = useState({
     email: "guest@guest.com",
     password: "test",
