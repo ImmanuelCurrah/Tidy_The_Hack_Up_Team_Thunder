@@ -54,12 +54,12 @@ export default function Home(props) {
             </Link>
           </div>
 
-          <div
+          <button
             className="bg-emerald-700 flex flex-col p-2 m-2 rounded-full text-emerald-100"
             onClick={guestLogin}
           >
             Log in as a Guest
-          </div>
+          </button>
           <br />
         </div>
       )}
