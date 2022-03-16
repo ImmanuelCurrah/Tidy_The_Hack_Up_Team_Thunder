@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show update destroy ]
+  before_action :set_event, only: %i[ show update destroy]
   before_action :authorize_request, only: [:create, :update, :destroy]
 
 
@@ -35,6 +35,12 @@ class EventsController < ApplicationController
       render json: @event.errors, status: :unprocessable_entity
     end
   end
+
+# Unregister User from event 
+def unregister_user
+  @event = Event.find(params[:event_id])
+  @event.users.delete(params[:user_id])
+end
 
   # DELETE /events/1
   def destroy

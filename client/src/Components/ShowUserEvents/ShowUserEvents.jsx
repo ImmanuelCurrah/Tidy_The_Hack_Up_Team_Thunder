@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import {fetchUserEvents} from "../../services/routes/user-config"
 import {verifyUser} from "../../services/routes/auth-config"
+import UnregisterButton from "../UnregisterButton"
 
 export default function ShowUserEvents() {
   const [userEvents, setUserEvents] = useState()
@@ -21,5 +22,17 @@ export default function ShowUserEvents() {
     return "Loading"
   }
 
-  return <div>UserEvents</div>
+  const handleUnregister = async (e) => {
+    e.preventDefault()
+  }
+
+  return userEvents.map((events, index) => {
+    return (
+      <div key={index}>
+        <p>{events.name}</p>
+        <p>{events.description}</p>
+        <UnregisterButton handleUnregister={handleUnregister} id={events.id} />
+      </div>
+    )
+  })
 }
