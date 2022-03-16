@@ -28,7 +28,8 @@ class ParticipantsController < ApplicationController
   end
 
   def unregister_participants 
-    @participant = Participant.find_by(event_id: params[:event_id], user_id: params[:user_id])
+    @event = Event.find(params[:event_id])
+    @participant = @event.participants.find_by(event_id: params[:event_id], user_id: params[:user_id])
     @participant.destroy
     render json: @participant
   end
