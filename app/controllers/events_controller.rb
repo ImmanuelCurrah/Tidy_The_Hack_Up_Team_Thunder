@@ -37,10 +37,7 @@ class EventsController < ApplicationController
   end
 
 # Unregister User from event 
-def unregister_user
-  @event = Event.find(params[:event_id])
-  @event.users.delete(params[:user_id])
-end
+
 
   # DELETE /events/1
   def destroy
