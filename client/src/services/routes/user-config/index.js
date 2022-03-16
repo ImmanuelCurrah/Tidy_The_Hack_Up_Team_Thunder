@@ -41,3 +41,11 @@ export const signupForEvent = async (user_id, event_id) => {
     errorHandler(error, "Could not sign up for this event")
   }
 }
+
+export const unregisterEvent = async (user_id, event_id) => {
+  try {
+    await api.delete(`/${user_id}/${event_id}/unregister`)
+  } catch (error) {
+    errorHandler(error, "Could not unregister from this event")
+  }
+}
