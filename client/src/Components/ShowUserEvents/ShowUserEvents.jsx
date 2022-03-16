@@ -16,6 +16,7 @@ export default function ShowUserEvents() {
         setUserEvents(resp)
         setUser(user)
         console.log(resp)
+        console.log(user)
       }
     }
     getEvents()
@@ -35,7 +36,7 @@ export default function ShowUserEvents() {
       <div key={index}>
         <p>{events.name}</p>
         <p>{events.description}</p>
-        <UnregisterButton handleUnregister={handleUnregister} event_id={events.id} user_id={user.id} />
+        <UnregisterButton handleUnregister={handleUnregister} event_id={events.id} user_id={user} />
       </div>
     )
   })
