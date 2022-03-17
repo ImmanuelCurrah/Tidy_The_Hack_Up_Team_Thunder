@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { createEvent } from "../../../services/routes/event-controller";
+import {useState} from "react"
+import {Link, useNavigate} from "react-router-dom"
+import {createEvent} from "../../../services/routes/event-controller"
 
 export default function EventAdd(props) {
   const [event, setEvent] = useState({
@@ -14,23 +14,23 @@ export default function EventAdd(props) {
     img_url: "",
     user_id: props?.currentUser?.id,
     participants_needed: 0,
-  });
+  })
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const {id, value} = e.target
     setEvent((prevInput) => ({
       ...prevInput,
       [id]: value,
-    }));
-  };
+    }))
+  }
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-    const resp = await createEvent(event);
-    navigate("/Events");
-  };
+    e.preventDefault()
+    await createEvent(event)
+    navigate("/Events")
+  }
 
   return (
     <div>
@@ -43,87 +43,23 @@ export default function EventAdd(props) {
           >
             <div className="text-emerald-1000">
               <label className="block">Name of Event</label>
-              <input
-                type="string"
-                id="name"
-                value={event.name}
-                onChange={handleChange}
-                required
-                autoFocus
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <input type="string" id="name" value={event.name} onChange={handleChange} required autoFocus className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
               <label className="block">Description</label>
-              <textarea
-                type="string"
-                id="description"
-                value={event.description}
-                onChange={handleChange}
-                required
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <textarea type="string" id="description" value={event.description} onChange={handleChange} required className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
               <label className="block">Equipment Needed</label>
-              <textarea
-                type="string"
-                id="equipment"
-                value={event.equipment}
-                onChange={handleChange}
-                required
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <textarea type="string" id="equipment" value={event.equipment} onChange={handleChange} required className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
               <label className="block">Donations Needed</label>
-              <input
-                type="number"
-                id="donations"
-                value={event.donations}
-                onChange={handleChange}
-                required
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <input type="number" id="donations" value={event.donations} onChange={handleChange} required className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
               <label className="block">Participants Needed</label>
-              <input
-                type="number"
-                id="participants_needed"
-                value={event.participants_needed}
-                onChange={handleChange}
-                required
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <input type="number" id="participants_needed" value={event.participants_needed} onChange={handleChange} required className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
               <label className="block">Location</label>
-              <input
-                type="string"
-                id="location"
-                value={event.location}
-                onChange={handleChange}
-                required
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <input type="string" id="location" value={event.location} onChange={handleChange} required className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
               <label className="block">Image for Post</label>
-              <input
-                type="string"
-                id="img_url"
-                value={event.img_url}
-                onChange={handleChange}
-                required
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <input type="string" id="img_url" value={event.img_url} onChange={handleChange} required className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
               <label className="block">Start Date</label>
-              <input
-                type="date"
-                id="start_date"
-                value={event.start_date}
-                onChange={handleChange}
-                required
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <input type="date" id="start_date" value={event.start_date} onChange={handleChange} required className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
               <label className="block">End Date</label>
-              <input
-                type="date"
-                id="end_date"
-                value={event.end_date}
-                onChange={handleChange}
-                required
-                className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3"
-              />
+              <input type="date" id="end_date" value={event.end_date} onChange={handleChange} required className="text-lg bg-emerald-100 rounded-2xl pl-4 py-3" />
             </div>
             <button
               className="bg-emerald-700 text-emerald-100 hover:text-emerald-50 hover:bg-emerald-600
@@ -144,5 +80,5 @@ export default function EventAdd(props) {
         </div>
       )}
     </div>
-  );
+  )
 }
