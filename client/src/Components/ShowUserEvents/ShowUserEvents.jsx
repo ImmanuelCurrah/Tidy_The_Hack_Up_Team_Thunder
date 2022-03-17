@@ -29,6 +29,7 @@ export default function ShowUserEvents() {
   const handleUnregister = async (e, user_id, event_id) => {
     e.preventDefault()
     await unregisterEvent(user_id, event_id)
+    window.location.reload(false)
   }
 
   return userEvents.map((events, index) => {
@@ -36,7 +37,7 @@ export default function ShowUserEvents() {
       <div key={index}>
         <p>{events.name}</p>
         <p>{events.description}</p>
-        <UnregisterButton handleUnregister={handleUnregister} event_id={events.id} user_id={user} />
+        <UnregisterButton handleUnregister={handleUnregister} event_id={events.id} user_id={user?.id} />
       </div>
     )
   })
