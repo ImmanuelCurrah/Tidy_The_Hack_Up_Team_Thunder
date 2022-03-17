@@ -95,7 +95,7 @@ export default function EventDetails(props) {
                     handleParticipate(e)
                   }}
                 >
-                  Participate
+                  Enroll for this event
                 </button>
               </div>
             )
