@@ -10,6 +10,15 @@ export const allEvents = async () => {
   }
 }
 
+export const getEvent = async (event_id) => {
+  try {
+    const response = await api.get(`/events/${event_id}`)
+    return response.data
+  } catch (error) {
+    errorHandler(error, "Could not get event data")
+  }
+}
+
 export const createEvent = async (eventParams) => {
   try {
     const response = await api.post("/events", {event: {...eventParams}})

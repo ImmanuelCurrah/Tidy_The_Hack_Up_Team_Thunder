@@ -1,11 +1,12 @@
 import {useState, useEffect} from "react"
-import {useParams} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
 import {addParticipant, showEventParticipants} from "../../../services/routes/event-controller"
 
 export default function EventDetails(props) {
   const {events, currentUser} = props
   const {id} = useParams()
   const [participants, setParticipants] = useState()
+  const navigate = useNavigate()
   const [handleComment, setHandleComment] = useState(false)
   // console.log(
   //   events.filter((e) => Number(e.id) === Number(id)),
@@ -20,8 +21,8 @@ export default function EventDetails(props) {
     fetchAllParticipants()
   }, [])
 
-  const handleUpdate = (e) => {
-    console.log("update")
+  const handleUpdate = () => {
+    navigate(`/Events/edit/${id}`)
   }
 
   const handleParticipate = async () => {
