@@ -17,9 +17,16 @@ export default function EventDetails(props) {
   };
 
   const handleParticipate = async () => {
+<<<<<<< HEAD
+    const participant = await addParticipant(currentUser.id, id)
+    alert("You have registered for this event")
+    console.log(participant)
+  }
+=======
     const participant = await addParticipant(currentUser.id, id);
     console.log(participant);
   };
+>>>>>>> cfeb932d4dd035d6720597a9a3ba752b5dc47114
   return (
     <div>
       Event Details

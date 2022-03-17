@@ -33,11 +33,10 @@ export const fetchUserEvents = async (user_id) => {
   }
 }
 
-export const signupForEvent = async (user_id, event_id) => {
+export const unregisterEvent = async (user_id, event_id) => {
   try {
-    const response = await api.post(`users/${user_id}/events/${event_id}`)
-    return response.data
+    await api.delete(`/${user_id}/${event_id}/unregister`)
   } catch (error) {
-    errorHandler(error, "Could not sign up for this event")
+    errorHandler(error, "Could not unregister from this event")
   }
 }

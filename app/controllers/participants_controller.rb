@@ -27,6 +27,13 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def unregister_participants 
+    @event = Event.find(params[:event_id])
+    @participant = @event.participants.find_by(event_id: params[:event_id], user_id: params[:user_id])
+    @participant.delete
+    render json: @participant
+  end
+
   # PATCH/PUT /participants/1
   def update
     if @participant.update(participant_params)
