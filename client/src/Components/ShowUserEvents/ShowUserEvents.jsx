@@ -29,6 +29,7 @@ export default function ShowUserEvents() {
   const handleUnregister = async (e, user_id, event_id) => {
     e.preventDefault()
     await unregisterEvent(user_id, event_id)
+    alert("You have unregistered from this event")
     window.location.reload(false)
   }
 
