@@ -24,7 +24,7 @@ class ParticipantsController < ApplicationController
   def create_participant
     @user = User.find(params[:user_id])
     @event = Event.find(params[:event_id])
-    @participant = Participant.new({:event_id => @event.id, :user_id => @user.id})
+    @participant = Participant.new({:event_id => @event.id, :user_id => @user.id, :user_name => @user.name})
 
     if @participant.save
       render json: @participant

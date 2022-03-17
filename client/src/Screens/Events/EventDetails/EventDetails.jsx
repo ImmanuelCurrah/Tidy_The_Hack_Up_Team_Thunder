@@ -6,6 +6,7 @@ export default function EventDetails(props) {
   const {events, currentUser} = props
   const {id} = useParams()
   console.log(id)
+  console.log(currentUser)
   const [participants, setParticipants] = useState()
   const [handleComment, setHandleComment] = useState(false)
   console.log(
@@ -102,9 +103,14 @@ export default function EventDetails(props) {
               </div>
             )
           })}
+      <p>Participants Enrolled</p>
       {participants &&
-        participants.map((participant) => {
-          console.log(participant)
+        participants.map((participant, index) => {
+          return (
+            <div key={index}>
+              <p>{participant.user_name}</p>
+            </div>
+          )
         })}
     </div>
   )
