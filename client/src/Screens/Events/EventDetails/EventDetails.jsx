@@ -5,20 +5,17 @@ import {addParticipant, showEventParticipants} from "../../../services/routes/ev
 export default function EventDetails(props) {
   const {events, currentUser} = props
   const {id} = useParams()
-  console.log(id)
-  console.log(currentUser)
   const [participants, setParticipants] = useState()
   const [handleComment, setHandleComment] = useState(false)
-  console.log(
-    events.filter((e) => Number(e.id) === Number(id)),
-    id
-  )
+  // console.log(
+  //   events.filter((e) => Number(e.id) === Number(id)),
+  //   id
+  // )
 
   useEffect(() => {
     const fetchAllParticipants = async () => {
       const response = await showEventParticipants(id)
       setParticipants(response)
-      console.log(response)
     }
     fetchAllParticipants()
   }, [])
@@ -28,9 +25,9 @@ export default function EventDetails(props) {
   }
 
   const handleParticipate = async () => {
-    const participant = await addParticipant(currentUser.id, id)
+    await addParticipant(currentUser.id, id)
     alert("You have registered for this event")
-    console.log(participant)
+    window.location.reload(false)
   }
   return (
     <div>
@@ -108,7 +105,7 @@ export default function EventDetails(props) {
         participants.map((participant, index) => {
           return (
             <div key={index}>
-              <p>{participant.user_name}</p>
+              <p>{`${index + 1}- ${participant.user_name}`}</p>
             </div>
           )
         })}
