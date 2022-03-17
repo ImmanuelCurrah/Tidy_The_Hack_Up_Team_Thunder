@@ -14,11 +14,17 @@ class ParticipantsController < ApplicationController
     render json: @participant
   end
 
+  #Get /event_id/participants
+  def show_all_participants
+    @event = Event.find(params[:event_id])
+    render json: @event.participants
+  end
+
   # POST /participants
   def create_participant
     @user = User.find(params[:user_id])
     @event = Event.find(params[:event_id])
-    @participant = Participant.new({:event_id => @event.id, :user_id => @user.id})
+    @participant = Participant.new({:event_id => @event.id, :user_id => @user.id, :user_name => @user.name})
 
     if @participant.save
       render json: @participant

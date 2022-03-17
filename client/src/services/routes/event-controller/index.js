@@ -27,3 +27,12 @@ export const addParticipant = async (user_id, event_id) => {
     errorHandler(error, "Could not create participant")
   }
 }
+
+export const showEventParticipants = async (event_id) => {
+  try {
+    const response = await api.get(`/${event_id}/participants`)
+    return response.data
+  } catch (error) {
+    errorHandler(error, "Could not get this events participants")
+  }
+}

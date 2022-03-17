@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get '/users/:id/events', to: 'users#show_user_events'
   post '/:user_id/:event_id', to: 'participants#create_participant'
   delete '/:user_id/:event_id/unregister', to: 'participants#unregister_participants'
-
+  get '/:event_id/participants', to: 'participants#show_all_participants'
 end
