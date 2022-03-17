@@ -1,7 +1,6 @@
 import {useState} from "react"
 import {useParams} from "react-router-dom"
 import {addParticipant} from "../../../services/routes/event-controller"
-import {signupForEvent} from "../../../services/routes/user-config"
 
 export default function EventDetails(props) {
   const {events, currentUser} = props
@@ -19,6 +18,7 @@ export default function EventDetails(props) {
 
   const handleParticipate = async () => {
     const participant = await addParticipant(currentUser.id, id)
+    alert("You have registered for this event")
     console.log(participant)
   }
   return (
