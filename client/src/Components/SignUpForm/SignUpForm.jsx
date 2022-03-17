@@ -37,14 +37,8 @@ export default function SignUpForm(props) {
   };
 
   return (
-    <section
-      className="flex flex-col items-center m-8 space-y-3"
-    >
-      <h2
-        className="text-2xl text-emerald-1000"
-      >
-        Sign Up!
-      </h2>
+    <section className="flex flex-col items-center m-8 space-y-3">
+      <h2 className="text-2xl text-emerald-1000">Sign Up!</h2>
 
       {/* Sign Up Form */}
       <form
@@ -55,13 +49,8 @@ export default function SignUpForm(props) {
         rounded-2xl"
       >
         {/* User Name */}
-        <div
-          className="text-emerald-1000"
-        >
-          <label
-            htmlFor="name"
-            className="block"
-          >
+        <div className="text-emerald-1000">
+          <label htmlFor="name" className="block">
             Username
           </label>
           <input
@@ -77,13 +66,8 @@ export default function SignUpForm(props) {
         </div>
 
         {/* Avatar URL */}
-        <div
-          className="text-emerald-1000"
-        >
-          <label
-            htmlFor="img_url"
-            className="block"
-          >
+        <div className="text-emerald-1000">
+          <label htmlFor="img_url" className="block">
             Avatar Url
           </label>
           <input
@@ -98,13 +82,8 @@ export default function SignUpForm(props) {
         </div>
 
         {/* Email */}
-        <div
-          className="text-emerald-1000"
-        >
-          <label
-            htmlFor="email"
-            className="block"
-          >
+        <div className="text-emerald-1000">
+          <label htmlFor="email" className="block">
             Email
           </label>
           <input
@@ -119,13 +98,8 @@ export default function SignUpForm(props) {
         </div>
 
         {/* Password */}
-        <div
-          className="text-emerald-1000"
-        >
-          <label
-            htmlFor="password"
-            className="block"
-          >
+        <div className="text-emerald-1000">
+          <label htmlFor="password" className="block">
             Password
           </label>
           <input
@@ -140,13 +114,8 @@ export default function SignUpForm(props) {
         </div>
 
         {/* Confirm Password */}
-        <div
-          className="text-emerald-1000"
-        >
-          <label
-            htmlFor="confirmedPassword"
-            className="block"
-          >
+        <div className="text-emerald-1000">
+          <label htmlFor="confirmedPassword" className="block">
             Confirm Password
           </label>
           <input
@@ -174,21 +143,15 @@ export default function SignUpForm(props) {
       </form>
 
       {/* Password Match User Notifications */}
-      {confirmPassword.confirmedPassword !== input.password && confirmPassword.confirmedPassword !== "" && (
-        <p
-          className="text-lg text-rose-500"
-        >
-          Passwords must match.
-        </p>
-      )}
+      {confirmPassword.confirmedPassword !== input.password &&
+        confirmPassword.confirmedPassword !== "" && (
+          <p className="text-lg text-rose-500">Passwords must match.</p>
+        )}
 
-      {confirmPassword.confirmedPassword == input.password && confirmPassword.confirmedPassword !== "" && (
-        <p
-          className="text-lg text-indigo-500"
-        >
-          Passwords match!
-        </p>
-      )}
+      {confirmPassword.confirmedPassword === input.password &&
+        confirmPassword.confirmedPassword !== "" && (
+          <p className="text-lg text-indigo-500">Passwords match!</p>
+        )}
     </section>
   );
 }
