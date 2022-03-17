@@ -1,5 +1,5 @@
 export default function EventForm(props) {
-  const {onSubmit, handleChange, event} = props
+  const {onSubmit, handleChange, event, title} = props
 
   return (
     <div>
@@ -35,7 +35,7 @@ export default function EventForm(props) {
           focus:outline-none focus:ring focus:ring-offset-2 focus:ring-emerald-300 focus:ring-opacity-50
           active:text-emerald-200 active:bg-emerald-800 rounded-2xl py-2 px-6 my-6"
           >
-            Add
+            {title}
           </button>
         </form>
       </section>

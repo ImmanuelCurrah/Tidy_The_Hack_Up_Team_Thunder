@@ -35,7 +35,7 @@ export default function EventAdd(props) {
   return (
     <div>
       {props.currentUser ? (
-        <EventForm onSubmit={onSubmit} handleChange={handleChange} event={event} />
+        <EventForm onSubmit={onSubmit} handleChange={handleChange} event={event} title="Add" />
       ) : (
         <div className="flex flex-row justify-center">
           <h4>Please login</h4>

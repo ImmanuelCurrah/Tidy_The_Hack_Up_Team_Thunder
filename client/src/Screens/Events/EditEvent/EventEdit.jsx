@@ -44,7 +44,7 @@ export default function EventEdit(props) {
 
   return (
     <div>
-      <EventForm event={event} handleChange={handleChange} onSubmit={onSubmit} />
+      <EventForm event={event} handleChange={handleChange} onSubmit={onSubmit} title="Edit" />
     </div>
   )
 }
