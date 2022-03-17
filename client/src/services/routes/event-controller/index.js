@@ -28,6 +28,15 @@ export const createEvent = async (eventParams) => {
   }
 }
 
+export const editEvent = async (event_id, eventParams) => {
+  try {
+    const response = await api.put(`/events/${event_id}`, {event: {...eventParams}})
+    return response.data
+  } catch (error) {
+    errorHandler(error, "Could not update changes to this event")
+  }
+}
+
 export const addParticipant = async (user_id, event_id) => {
   try {
     const response = await api.post(`/${user_id}/${event_id}`)

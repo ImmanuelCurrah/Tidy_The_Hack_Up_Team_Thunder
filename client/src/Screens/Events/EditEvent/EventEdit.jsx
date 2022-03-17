@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import {useParams} from "react-router-dom"
 import EventForm from "../../../Components/EventForm/EventForm"
-import {getEvent} from "../../../services/routes/event-controller"
+import {editEvent, getEvent} from "../../../services/routes/event-controller"
 
 export default function EventEdit(props) {
   const [event, setEvent] = useState({
@@ -22,13 +22,29 @@ export default function EventEdit(props) {
     const fetchEvent = async () => {
       const response = await getEvent(event_id)
       setEvent(response)
+      console.log(response)
     }
     fetchEvent()
   }, [])
 
+  const handleChange = (e) => {
+    e.preventDefault()
+    const {id, value} = e.target
+    setEvent((prevInput) => ({
+      ...prevInput,
+      [id]: value,
+    }))
+  }
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    await editEvent(event_id, event)
+    // navigate("/Events")
+  }
+
   return (
     <div>
-      <EventForm event={event} />
+      <EventForm event={event} handleChange={handleChange} onSubmit={onSubmit} />
     </div>
   )
 }
