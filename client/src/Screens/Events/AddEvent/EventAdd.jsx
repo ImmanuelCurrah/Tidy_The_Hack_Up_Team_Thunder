@@ -30,6 +30,7 @@ export default function EventAdd(props) {
     e.preventDefault()
     await createEvent(event)
     navigate("/Events")
+    window.location.reload(false)
   }
 
   return (

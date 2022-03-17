@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import {useParams} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
 import EventForm from "../../../Components/EventForm/EventForm"
 import {editEvent, getEvent} from "../../../services/routes/event-controller"
 
@@ -17,12 +17,12 @@ export default function EventEdit(props) {
     participants_needed: 0,
   })
   const {event_id} = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchEvent = async () => {
       const response = await getEvent(event_id)
       setEvent(response)
-      console.log(response)
     }
     fetchEvent()
   }, [])
@@ -39,7 +39,7 @@ export default function EventEdit(props) {
   const onSubmit = async (e) => {
     e.preventDefault()
     await editEvent(event_id, event)
-    // navigate("/Events")
+    navigate("/Events")
   }
 
   return (
