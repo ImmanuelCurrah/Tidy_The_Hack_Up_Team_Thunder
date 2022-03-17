@@ -102,14 +102,27 @@ export default function EventDetails(props) {
             )
           })}
       <p>Participants Enrolled</p>
-      {participants &&
+      {/* {participants &&
         participants.map((participant, index) => {
           return (
             <div key={index}>
               <p>{`${index + 1}- ${participant.user_name}`}</p>
             </div>
           )
-        })}
+        })} */}
+      {participants?.length == 0 ? (
+        <div>
+          <p>There Are no participants Enrolled</p>
+        </div>
+      ) : (
+        participants?.map((participant, index) => {
+          return (
+            <div key={index}>
+              <p>{`${index + 1}- ${participant.user_name}`}</p>
+            </div>
+          )
+        })
+      )}
     </div>
   )
 }
