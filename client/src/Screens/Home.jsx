@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Home(props) {
   const [featuredEvents, setFeaturedEvents] = useState([]);
+  //eslint-disable-next-line
   const [guest, setGuest] = useState({
     email: "guest@guest.com",
     password: "test",
