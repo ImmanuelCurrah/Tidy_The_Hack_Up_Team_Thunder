@@ -1,16 +1,26 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {useParams} from "react-router-dom"
-import {addParticipant} from "../../../services/routes/event-controller"
+import {addParticipant, showEventParticipants} from "../../../services/routes/event-controller"
 
 export default function EventDetails(props) {
   const {events, currentUser} = props
   const {id} = useParams()
   console.log(id)
+  const [participants, setParticipants] = useState()
   const [handleComment, setHandleComment] = useState(false)
   console.log(
     events.filter((e) => Number(e.id) === Number(id)),
     id
   )
+
+  useEffect(() => {
+    const fetchAllParticipants = async () => {
+      const response = await showEventParticipants(id)
+      setParticipants(response)
+      console.log(response)
+    }
+    fetchAllParticipants()
+  }, [])
 
   const handleUpdate = (e) => {
     console.log("update")
@@ -92,6 +102,10 @@ export default function EventDetails(props) {
               </div>
             )
           })}
+      {participants &&
+        participants.map((participant) => {
+          console.log(participant)
+        })}
     </div>
   )
 }
