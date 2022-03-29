@@ -6,19 +6,17 @@ export default function EventDetails(props) {
   const {events, currentUser} = props
   const {id} = useParams()
   const [participants, setParticipants] = useState()
-  const [numberOfParticipants, setNumberOfParticipants] = useState()
   const navigate = useNavigate()
   const [handleComment, setHandleComment] = useState(false)
   // console.log(
   //   events.filter((e) => Number(e.id) === Number(id)),
   //   id
   // )
-
+  console.log(participants)
   useEffect(() => {
     const fetchAllParticipants = async () => {
       const response = await showEventParticipants(id)
       setParticipants(response)
-      setNumberOfParticipants(response.length)
     }
     fetchAllParticipants()
   }, [])
@@ -26,7 +24,6 @@ export default function EventDetails(props) {
   const handleUpdate = () => {
     navigate(`/Events/edit/${id}`)
   }
-
   const handleParticipate = async () => {
     await addParticipant(currentUser.id, id)
     alert("You have registered for this event")
@@ -91,15 +88,19 @@ export default function EventDetails(props) {
                 >
                   Update
                 </button>
-                <button
-                  className="bg-emerald-800 my-2 rounded-md text-emerald-100 p-1"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleParticipate(e)
-                  }}
-                >
-                  Enroll for this event
-                </button>
+                {participants.filter((participant) => participant.user_id === currentUser.id) ? (
+                  <button>Unregister from this event</button>
+                ) : (
+                  <button
+                    className="bg-emerald-800 my-2 rounded-md text-emerald-100 p-1"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleParticipate(e)
+                    }}
+                  >
+                    Enroll for this event
+                  </button>
+                )}
               </div>
             )
           })}
@@ -118,7 +119,6 @@ export default function EventDetails(props) {
         </div>
       ) : (
         participants?.map((participant, index) => {
-          console.log(numberOfParticipants)
           return (
             <div key={index}>
               <p>{`${index + 1}- ${participant.user_name}`}</p>
