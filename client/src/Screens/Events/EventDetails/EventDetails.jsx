@@ -8,11 +8,14 @@ export default function EventDetails(props) {
   const [participants, setParticipants] = useState()
   const navigate = useNavigate()
   const [handleComment, setHandleComment] = useState(false)
+
+  let participantId = participants?.filter((participant) => participant?.user_id === currentUser?.id)
+
   // console.log(
   //   events.filter((e) => Number(e.id) === Number(id)),
   //   id
   // )
-  console.log(participants)
+
   useEffect(() => {
     const fetchAllParticipants = async () => {
       const response = await showEventParticipants(id)
@@ -88,9 +91,7 @@ export default function EventDetails(props) {
                 >
                   Update
                 </button>
-                {participants.filter((participant) => participant.user_id === currentUser.id) ? (
-                  <button>Unregister from this event</button>
-                ) : (
+                {participantId.length == 0 ? (
                   <button
                     className="bg-emerald-800 my-2 rounded-md text-emerald-100 p-1"
                     onClick={(e) => {
@@ -100,6 +101,8 @@ export default function EventDetails(props) {
                   >
                     Enroll for this event
                   </button>
+                ) : (
+                  <button>Unregister from this event</button>
                 )}
               </div>
             )
