@@ -6,6 +6,7 @@ export default function EventDetails(props) {
   const {events, currentUser} = props
   const {id} = useParams()
   const [participants, setParticipants] = useState()
+  const [numberOfParticipants, setNumberOfParticipants] = useState()
   const navigate = useNavigate()
   const [handleComment, setHandleComment] = useState(false)
   // console.log(
@@ -17,6 +18,7 @@ export default function EventDetails(props) {
     const fetchAllParticipants = async () => {
       const response = await showEventParticipants(id)
       setParticipants(response)
+      setNumberOfParticipants(response.length)
     }
     fetchAllParticipants()
   }, [])
@@ -101,7 +103,7 @@ export default function EventDetails(props) {
               </div>
             )
           })}
-      <p>Participants Enrolled</p>
+      <p>{`Participants Enrolled: ${participants?.length}`}</p>
       {/* {participants &&
         participants.map((participant, index) => {
           return (
@@ -116,6 +118,7 @@ export default function EventDetails(props) {
         </div>
       ) : (
         participants?.map((participant, index) => {
+          console.log(numberOfParticipants)
           return (
             <div key={index}>
               <p>{`${index + 1}- ${participant.user_name}`}</p>
