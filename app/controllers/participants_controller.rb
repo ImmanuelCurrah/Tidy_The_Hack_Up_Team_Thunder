@@ -22,15 +22,21 @@ class ParticipantsController < ApplicationController
 
   # POST /participants
   def create_participant
-    @user = User.find(params[:user_id])
-    @event = Event.find(params[:event_id])
-    @participant = Participant.new({:event_id => @event.id, :user_id => @user.id, :user_name => @user.name})
-
-    if @participant.save
-      render json: @participant
-    else
+    @participant = Participant.find_by(event_id: params[:event_id], user_id: params[:user_id])
+    if @participant
       render json: @participant.errors, status: :unprocessable_entity
+    else
+      @user = User.find(params[:user_id])
+      @event = Event.find(params[:event_id])
+      @participant = Participant.new({:event_id => @event.id, :user_id => @user.id, :user_name => @user.name})
+
+      if @participant.save
+        render json: @participant
+      else
+        render json: @participant.errors, status: :unprocessable_entity
+      end
     end
+   
   end
 
   def unregister_participants 

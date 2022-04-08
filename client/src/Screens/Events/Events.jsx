@@ -3,6 +3,7 @@ import {Routes, Route, NavLink} from "react-router-dom"
 import {allEvents} from "../../services/routes/event-controller"
 import EventAdd from "./AddEvent/EventAdd"
 import EventDetails from "./EventDetails/EventDetails"
+import EventEdit from "./EditEvent/EventEdit"
 
 export default function Events(props) {
   const {currentUser} = props
@@ -52,6 +53,7 @@ export default function Events(props) {
             </div>
           }
         />
+        <Route path={`edit/:event_id`} element={<EventEdit currentUser={currentUser} />} />
       </Routes>
     </div>
   )

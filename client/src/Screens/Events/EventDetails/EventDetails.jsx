@@ -1,12 +1,16 @@
 import {useState, useEffect} from "react"
-import {useParams} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
 import {addParticipant, showEventParticipants} from "../../../services/routes/event-controller"
 
 export default function EventDetails(props) {
   const {events, currentUser} = props
   const {id} = useParams()
   const [participants, setParticipants] = useState()
+  const navigate = useNavigate()
   const [handleComment, setHandleComment] = useState(false)
+
+  let participantId = participants?.filter((participant) => participant?.user_id === currentUser?.id)
+
   // console.log(
   //   events.filter((e) => Number(e.id) === Number(id)),
   //   id
@@ -20,10 +24,9 @@ export default function EventDetails(props) {
     fetchAllParticipants()
   }, [])
 
-  const handleUpdate = (e) => {
-    console.log("update")
+  const handleUpdate = () => {
+    navigate(`/Events/edit/${id}`)
   }
-
   const handleParticipate = async () => {
     await addParticipant(currentUser.id, id)
     alert("You have registered for this event")
@@ -88,27 +91,44 @@ export default function EventDetails(props) {
                 >
                   Update
                 </button>
-                <button
-                  className="bg-emerald-800 my-2 rounded-md text-emerald-100 p-1"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleParticipate(e)
-                  }}
-                >
-                  Participate
-                </button>
+                {participantId.length == 0 ? (
+                  <button
+                    className="bg-emerald-800 my-2 rounded-md text-emerald-100 p-1"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleParticipate(e)
+                    }}
+                  >
+                    Enroll for this event
+                  </button>
+                ) : (
+                  <button>Unregister from this event</button>
+                )}
               </div>
             )
           })}
-      <p>Participants Enrolled</p>
-      {participants &&
+      <p>{`Participants Enrolled: ${participants?.length}`}</p>
+      {/* {participants &&
         participants.map((participant, index) => {
           return (
             <div key={index}>
               <p>{`${index + 1}- ${participant.user_name}`}</p>
             </div>
           )
-        })}
+        })} */}
+      {participants?.length == 0 ? (
+        <div>
+          <p>There Are no participants Enrolled</p>
+        </div>
+      ) : (
+        participants?.map((participant, index) => {
+          return (
+            <div key={index}>
+              <p>{`${index + 1}- ${participant.user_name}`}</p>
+            </div>
+          )
+        })
+      )}
     </div>
   )
 }
