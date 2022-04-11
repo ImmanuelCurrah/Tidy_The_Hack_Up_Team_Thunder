@@ -1,8 +1,7 @@
 import {useState, useEffect} from "react"
-import {fetchUserEvents} from "../../services/routes/user-config"
+import {fetchUserEvents, unregisterEvent} from "../../services/routes/user-config"
 import {verifyUser} from "../../services/routes/auth-config"
 import UnregisterButton from "../UnregisterButton"
-import {unregisterEvent} from "../../services/routes/user-config"
 
 export default function ShowUserEvents() {
   const [userEvents, setUserEvents] = useState()
