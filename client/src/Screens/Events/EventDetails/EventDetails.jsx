@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import {useParams, useNavigate} from "react-router-dom"
 import {addParticipant, showEventParticipants} from "../../../services/routes/event-controller"
+import {unregisterEvent} from "../../../services/routes/user-config"
 
 export default function EventDetails(props) {
   const {events, currentUser} = props
@@ -30,6 +31,13 @@ export default function EventDetails(props) {
   const handleParticipate = async () => {
     await addParticipant(currentUser.id, id)
     alert("You have registered for this event")
+    window.location.reload(false)
+  }
+
+  const handleUnregister = async (e) => {
+    e.preventDefault()
+    await unregisterEvent(currentUser.id, id)
+    alert("You have unregistered from this event")
     window.location.reload(false)
   }
   return (
@@ -67,7 +75,7 @@ export default function EventDetails(props) {
                   </button>
                   <button
                     className="bg-emerald-800 my-2 rounded-md text-emerald-100 p-1"
-                    onClick={(e) => {
+                    onClick={() => {
                       e.preventDefault()
                     }}
                   >
@@ -91,7 +99,7 @@ export default function EventDetails(props) {
                 >
                   Update
                 </button>
-                {participantId.length == 0 ? (
+                {participantId?.length === 0 ? (
                   <button
                     className="bg-emerald-800 my-2 rounded-md text-emerald-100 p-1"
                     onClick={(e) => {
@@ -102,7 +110,7 @@ export default function EventDetails(props) {
                     Enroll for this event
                   </button>
                 ) : (
-                  <button>Unregister from this event</button>
+                  <button onClick={(e) => handleUnregister(e)}>Unregister from this event</button>
                 )}
               </div>
             )
@@ -116,7 +124,7 @@ export default function EventDetails(props) {
             </div>
           )
         })} */}
-      {participants?.length == 0 ? (
+      {participants?.length === 0 ? (
         <div>
           <p>There Are no participants Enrolled</p>
         </div>
@@ -124,7 +132,7 @@ export default function EventDetails(props) {
         participants?.map((participant, index) => {
           return (
             <div key={index}>
-              <p>{`${index + 1}- ${participant.user_name}`}</p>
+              <p>{`${index + 1}- ${participant.user_name.charAt(0).toUpperCase()}${participant.user_name.slice(1)}`}</p>
             </div>
           )
         })
