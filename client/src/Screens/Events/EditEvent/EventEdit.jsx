@@ -25,6 +25,7 @@ export default function EventEdit(props) {
       setEvent(response)
     }
     fetchEvent()
+    // eslint-disable-next-line
   }, [])
 
   const handleChange = (e) => {

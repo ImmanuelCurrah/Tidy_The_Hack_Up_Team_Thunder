@@ -99,7 +99,7 @@ export default function EventDetails(props) {
                 >
                   Update
                 </button>
-                {participantId?.length == 0 ? (
+                {participantId?.length === 0 ? (
                   <button
                     className="bg-emerald-800 my-2 rounded-md text-emerald-100 p-1"
                     onClick={(e) => {
@@ -124,7 +124,7 @@ export default function EventDetails(props) {
             </div>
           )
         })} */}
-      {participants?.length == 0 ? (
+      {participants?.length === 0 ? (
         <div>
           <p>There Are no participants Enrolled</p>
         </div>
